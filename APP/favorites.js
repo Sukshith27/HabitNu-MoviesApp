@@ -9,28 +9,26 @@ export default class Favorites extends React.Component {
         };
     }
     _renderItem = (item,index) => {
+        console.log('item', item.item[0].Title);
         return (
-            <View key={index}>
-                <Text>{item.Title}</Text>
+            <View key={index} style = {Styles.container}>
+                <Text style = {Styles.moviesText}>{item.item[0].Title}</Text>
             </View>
         )
     }
 
-    favList = () => {
-        <Text>exampl</Text>
-    }
 
     render() {
         console.log(this.props.favoriteItems);
         let data = this.props.favoriteItems;
 
         let result = Object.keys(data).map(function(key) {
-            return [Number(key), data[key]];
+            return [data[key]];
           });
         
+        console.log(result);
         return(
             <View>
-                <Text>From main</Text>
                 <FlatList
                     data={result}
                     renderItem={this._renderItem}
@@ -39,3 +37,14 @@ export default class Favorites extends React.Component {
         );
     }
 }
+
+const Styles = StyleSheet.create({
+
+    container: {
+        flex: 1
+    },
+    moviesText: {
+        margin: 30,
+        fontWeight: "900"
+    }
+});
