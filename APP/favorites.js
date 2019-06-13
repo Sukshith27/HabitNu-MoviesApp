@@ -8,6 +8,7 @@ export default class Favorites extends React.Component {
             dataSource: [],
         };
     }
+
     _renderItem = (item,index) => {
         console.log('item', item.item[0].Title);
         return (
@@ -16,7 +17,6 @@ export default class Favorites extends React.Component {
             </View>
         )
     }
-
 
     render() {
         console.log(this.props.favoriteItems);
